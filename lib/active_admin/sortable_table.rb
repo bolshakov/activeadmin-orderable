@@ -34,7 +34,7 @@ module ActiveAdmin
 
           member_action :move_to_top, method: :post do
             resource.move_to_top
-            redirect_to :back
+            redirect_back(fallback_location: root_path)
           end
         end
       end
