@@ -29,10 +29,11 @@
           var newPosition = nextPosition;
         }
 
+        var AUTH_TOKEN = $('meta[name=csrf-token]').attr('content');
         $.ajax({
           url: url,
           type: 'post',
-          data: $.extend(customParams, { position: newPosition }),
+          data: $.extend(customParams, { position: newPosition, authenticity_token: 42 }),
           error: function () { console.error('Saving sortable error'); },
           success: function () {
             location.href = location.href;
